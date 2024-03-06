@@ -1,24 +1,34 @@
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 
+const confettiConfig = {
+  spread: 360,
+  ticks: 100,
+  gravity: 0,
+  decay: 0.94,
+  startVelocity: 30,
+  shapes: ["heart"],
+  colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
+};
+
 const offsetHeight = window.innerHeight - noBtn.offsetHeight; 
 const offsetWidth = window.innerWidth - noBtn.offsetWidth; 
 
 yesBtn.addEventListener("click", () => {
     confetti({
-      ...defaults,
+      ...confettiConfig,
       particleCount: 50,
       scalar: 2,
     });
 
     confetti({
-      ...defaults,
+      ...confettiConfig,
       particleCount: 25,
       scalar: 3,
     });
 
     confetti({
-      ...defaults,
+      ...confettiConfig,
       particleCount: 10,
       scalar: 4,
     });
