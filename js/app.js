@@ -4,6 +4,26 @@ const yesBtn = document.getElementById("yes");
 const offsetHeight = window.innerHeight - noBtn.offsetHeight; 
 const offsetWidth = window.innerWidth - noBtn.offsetWidth; 
 
+yesBtn.addEventListener("click", () => {
+    confetti({
+      ...defaults,
+      particleCount: 50,
+      scalar: 2,
+    });
+
+    confetti({
+      ...defaults,
+      particleCount: 25,
+      scalar: 3,
+    });
+
+    confetti({
+      ...defaults,
+      particleCount: 10,
+      scalar: 4,
+    });
+});
+
 noBtn.addEventListener("click", () => {
     triggerActions();
 });
