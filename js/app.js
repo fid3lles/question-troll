@@ -27,6 +27,7 @@ copyBtn.addEventListener("click", () => {
   questionInput.select();
   document.execCommand("copy");
   optPanel.style.display = "none";
+  alert("Copiado para a área de transferência. Mande para um amigo!");
 });
 
 yesBtn.addEventListener("click", () => {
