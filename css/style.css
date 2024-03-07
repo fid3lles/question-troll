@@ -1,85 +1,146 @@
 :root {
-    --bg-color: #c8a4e6;
-    --font-color: #fff;
-    --bg-yes-btn-color: #7ED7C1;
-    --bg-no-btn-color: #DC8686;
-    --bg-color-alt: #666;
-    --border-btn-color: #323232;
-    
+  /* GENERAL */
+  --bg-color: #c8a4e6;
+  --font-color: #fff;
+  /* BUTTONS */
+  --bg-yes-btn-color: #7ed7c1;
+  --bg-no-btn-color: #dc8686;
+  --border-btn-color: #323232;
+  /* POPUP */
+  --font-popup-color: #323232;
+  --bg-popup-color: #fff;
+  --bg-input-color: #fff;
+  --opt-first-color: #dcd386;;
+  --opt-second-color: #86a1dc;;
+  --opt-third-color: #c8a4e6;
 }
 
 body {
-    background-color: var(--bg-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    margin: 0;
-	padding: 0;
-	border: 0;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+
+  & .question {
+    text-align: center;
+    font-family: Montserrat;
+    color: var(--font-color);
+    text-shadow: 3px 3px var(--border-btn-color);
+  }
+
+  & .answers {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 100%;
+    column-gap: 10%;
+  }
 
-    & .question {
-        text-align: center;
-        font-family: Montserrat;
-        color: var(--font-color);
-        text-shadow: 3px 3px var(--border-btn-color);
-    }
-
-    & .answers {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        column-gap: 10%;
-    }
-
-    & .answers-opt-holder {
-        display: flex;
-        justify-content: center;
-        width: 50%;
-    }
+  & .answers-opt-holder {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+  }
 }
 
 .answers-opt-buttons {
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    border: 2px solid var(--border-btn-color);
-    box-shadow: 4px 4px var(--border-btn-color);
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--font-color);
-    cursor: pointer;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--border-btn-color);
+  box-shadow: 4px 4px var(--border-btn-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
 }
 
 #no {
-    background-color: var(--bg-no-btn-color);
+  background-color: var(--bg-no-btn-color);
 }
 
 #yes {
-    background-color: var(--bg-yes-btn-color);
+  background-color: var(--bg-yes-btn-color);
 }
 
 .triggered {
-    position: absolute;
-    z-index: 1;
+  position: absolute;
+  z-index: 1;
+}
+
+#popup {
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+
+  & .popup-title {
+    text-align: center;
+    font-family: Montserrat;
+    color: var(--font-popup-color);
+  }
+
+  & .popup-content {
+    background-color: var(--bg-popup-color);
+    margin: 55% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 30vh;
+    position: relative;
+    border-radius: 25px;
+    border: 2px solid var(--border-btn-color);
+    box-shadow: 4px 4px var(--border-btn-color);
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    & .question-input {
+      width: 80%;
+      height: 20px;
+      border: 2px solid var(--border-btn-color);
+      background-color: var(--bg-input-color);
+      font-family: Montserrat;
+      font-size: 16px;
+    }
+
+    & .copy-link {
+      border: 2px solid var(--border-btn-color);
+      width: 100px;
+      height: 40px;
+      border-radius: 25px;
+      font-family: Montserrat, -apple-system;
+      background-color: var(--font-popup-color);
+      color: var(--font-color);
+      cursor: pointer;
+    }
+  }
 }
 
 footer {
-    position: fixed;
-    bottom: 20px;
-    font-family: Consolas, -apple-system;
-    color: white;
+  position: fixed;
+  bottom: 20px;
+  font-family: Consolas, -apple-system;
+  color: white;
 
-    & a {
-        color: var(--font-color);
-    }
+  & a {
+    color: var(--font-color);
+  }
 }
