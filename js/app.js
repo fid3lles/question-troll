@@ -23,7 +23,7 @@ const confettiConfig = {
 
 copyBtn.addEventListener("click", () => {
   question.textContent = questionInput.value;
-  questionInput.value = `${window.location.href}?msg=${questionInput.value}`;
+  questionInput.value = `${window.location.href}?msg=${encodeURIComponent(questionInput.value)}`;
   questionInput.select();
   document.execCommand("copy");
   optPanel.style.display = "none";
