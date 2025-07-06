@@ -3,34 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troll question</title>
-    <link rel="stylesheet" href="./css/style.css">
-
+    <title>Queerio!</title>
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
+    <header class="header">
+        <div class="logo-wrapper">
+            <img src="./img/logotipo.png" alt="Logotipo do Queerio">
+        </div>
+    </header>
     <div class="container">
-        <h1 class="question"></h1>
-        <div class="answers">
-            <div class="answers-opt-holder">
-                <button id="yes" class="answers-opt-buttons">Yes</button>
-            </div>
-            <div class="answers-opt-holder">
-                <button id="no" class="answers-opt-buttons">No</button>
-            </div>
-        </div> 
-    </div>
-    <div id="popup">
-        <div class="popup-content">
-            <h1 class="popup-title">Qual vai ser a pergunta?</h1>
-            <input class="question-input" placeholder="Escreva a pergunta aqui..." type="text">
-            <button class="copy-link">Copiar link!</button>
+        <div class="form-wrapper">
+            <form action="">
+                <div class="input-wrapper">
+                    <label for="pergunta">Qual vai ser a pergunta?</label>
+                    <input id="pergunta" placeholder="Quer namorar comigo..." type="text">
+                </div>
+                <div class="input-wrapper">
+                    <label for="cor">Escolha uma cor de fundo:</label>
+                    <div id="cor" class="color-picker-wrapper">
+                        <div class="color-line">
+                            <input type="radio" name="color" class="color-dot" value="amarelo-pastel" style="background-color: #fefad1;">
+                            <input type="radio" name="color" class="color-dot" value="creme-claro" style="background-color: #fef4e3;">
+                            <input type="radio" name="color" class="color-dot" value="pessego-claro" style="background-color: #eac3b0;">
+                            <input type="radio" name="color" class="color-dot" value="coral-suave" style="background-color: #e9b3af;">
+                            <input type="radio" name="color" class="color-dot" value="amarelo-esverdeado" style="background-color: #e8ec98;">
+                            <input type="radio" name="color" class="color-dot" value="verde-menta-suave" style="background-color: #b7eda7;">
+                        </div>
+                        <div class="color-line">
+                            <input type="radio" name="color" class="color-dot" value="verde-agua" style="background-color: #b5ebdc;">
+                            <input type="radio" name="color" class="color-dot" value="azul-bebe" style="background-color: #bde4eb;">
+                            <input type="radio" name="color" class="color-dot" value="azul-celeste" style="background-color: #abc4e9;">
+                            <input type="radio" name="color" class="color-dot" value="lavanda-clara" style="background-color: #c9c0ea;">
+                            <input type="radio" name="color" class="color-dot" value="rosa-chiclete" style="background-color: #ecc2e2;">
+                            <input type="radio" name="color" class="color-dot" value="rosa-pastel" style="background-color: #ecbecc;">
+                        </div>
+                        <div class="color-line">
+                            <input type="radio" name="color" class="color-dot" value="bege-acinzentado" style="background-color: #bcaea2;">
+                            <input type="radio" name="color" class="color-dot" value="dourado-fosco" style="background-color: #d1c09b;">
+                            <input type="radio" name="color" class="color-dot" value="cinza-claro" style="background-color: #dcdcdc;">
+                            <input type="radio" name="color" class="color-dot" value="azul-petroleo-fosco" style="background-color: #67757f;">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="submit" value="Gerar Queerio!">
+                </div>
+            </form>
         </div>
     </div>
-    <footer>Made with 🤍 by <a href="https://instagram.com/fid3lles">@fid3lles</a></footer>
+    <footer>
+        <div>
+            Made with 🤍 by <a href="https://instagram.com/fidelles.dev">@fidelles.dev</a>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     <script src="./js/app.js"></script>
 </body>
