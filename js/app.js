@@ -6,7 +6,7 @@ const renderCfg = {
 const form = document.getElementById("render-configuration");
 
 let encodedCfg = '';
-const currentUrl = window.location.origin;
+const currentUrl = window.location.href;
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
