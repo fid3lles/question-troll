@@ -1,75 +1,26 @@
-const question = document.querySelector(".question");
-const noBtn = document.getElementById("no");
-const yesBtn = document.getElementById("yes");
-const optPanel = document.getElementById("popup");
-const questionInput = document.querySelector(".question-input");
-const copyBtn = optPanel.querySelector(".copy-link");
-
-const url = window.location.href;
-const queryParams = new URLSearchParams(window.location.search);
-
-const offsetHeight = window.innerHeight - noBtn.offsetHeight;
-const offsetWidth = window.innerWidth - noBtn.offsetWidth;
-
-const confettiConfig = {
-  spread: 360,
-  ticks: 100,
-  gravity: 0,
-  decay: 0.94,
-  startVelocity: 30,
-  shapes: ["heart"],
-  colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
+const renderCfg = {
+    question: "",
+    colorHex: ""
 };
 
-copyBtn.addEventListener("click", () => {
-  question.textContent = questionInput.value;
-  questionInput.value = `${window.location.href}?msg=${encodeURIComponent(questionInput.value)}`;
-  questionInput.select();
-  document.execCommand("copy");
-  optPanel.style.display = "none";
-  alert("Copiado para a área de transferência. Mande para um amigo!");
+const form = document.getElementById("render-configuration");
+
+let encodedCfg = '';
+const currentUrl = window.location.origin;
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    renderCfg.question = form.elements['pergunta'].value;
+    renderCfg.colorHex = form.elements['color'].value;
+
+    encodedCfg = btoa(JSON.stringify(renderCfg));
+
+    generateUrl();
 });
 
-yesBtn.addEventListener("click", () => {
-  confetti({
-    ...confettiConfig,
-    particleCount: 50,
-    scalar: 2,
-  });
-
-  confetti({
-    ...confettiConfig,
-    particleCount: 25,
-    scalar: 3,
-  });
-
-  confetti({
-    ...confettiConfig,
-    particleCount: 10,
-    scalar: 4,
-  });
-});
-
-noBtn.addEventListener("click", () => {
-  triggerActions();
-});
-
-noBtn.addEventListener("mouseover", () => {
-  triggerActions();
-});
-
-const triggerActions = () => {
-  noBtn.style.width = `${yesBtn.offsetWidth}px`;
-  noBtn.classList.add("triggered");
-  noBtn.style.top = `${Math.floor(Math.random() * offsetHeight)}px`;
-  noBtn.style.left = `${Math.floor(Math.random() * offsetWidth)}px`;
+const generateUrl = () => {
+    let redirect = new URL(currentUrl + '/queerio.html');
+    redirect.searchParams.set('cfg', encodedCfg);
+    console.log(redirect.toString());
 };
-
-const getQueryParameters = () => {
-  if(queryParams.has("msg")){
-    question.textContent = queryParams.get("msg");
-    optPanel.style.display = "none";
-  }
-};
-
-getQueryParameters();
