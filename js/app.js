@@ -22,5 +22,5 @@ form.addEventListener('submit', (event) => {
 const generateUrl = () => {
     let redirect = new URL(currentUrl + '/queerio.html');
     redirect.searchParams.set('cfg', encodedCfg);
-    console.log(redirect.toString());
+    alert(redirect.toString());
 };

@@ -2,9 +2,11 @@ const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 const questionInput = document.querySelector(".question-input");
 
+const body = document.getElementsByTagName("body");
 const questionDisplay = document.getElementById("question");
 
 const queryParams = new URLSearchParams(window.location.search);
+var renderCfg = {};
 
 const offsetHeight = window.innerHeight - noBtn.offsetHeight;
 const offsetWidth = window.innerWidth - noBtn.offsetWidth;
@@ -58,12 +60,24 @@ const triggerActions = () => {
   noBtn.style.left = `${Math.floor(Math.random() * offsetWidth)}px`;
 };
 
-const getQueryParameters = () => {
-  if(queryParams.has("msg")){
-    let question = queryParams.get("msg");
-    questionDisplay.textContent = QUESTION_REGEX.test(question.trim()) ? question : `${question}?`
-  }
+const getQueryParameters = async () => {
+	if (queryParams.has("cfg")) {
+		let decodedObj = atob(queryParams.get('cfg'));
+		renderCfg = JSON.parse(decodedObj);
+	}
+};
+
+const changeBgColor = (hex) => {
+	console.log();
+	document.body.style.backgroundColor = hex;
+};
+
+const setQuestionText = (question) => {
+    questionDisplay.textContent += QUESTION_REGEX.test(question.trim()) ? question : `${question}?`;
 };
 
 // First calls
-getQueryParameters();
+await getQueryParameters();
+console.log(renderCfg.question);
+changeBgColor(renderCfg.colorHex);
+setQuestionText(renderCfg.question);
